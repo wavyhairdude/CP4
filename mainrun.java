@@ -7,17 +7,21 @@ public class mainrun {
 		int temp;
 		intro();
 		Scanner s = new Scanner(System.in);
-		System.out.println("Please type number corresponding to desired scores 1.) SAT 2.)ACT");
+		System.out.println("Please type number corresponding to desired scores 1.) SAT 2.)ACT for first applicant");
 		temp = s.nextInt();
 		applicant aone = new applicant();
 		applicant atwo = new applicant();
-		if (temp==1) {
+		/*if (temp==1) {
 			System.out.println("You Chose SAT");
 			sat(s, aone);
 		} else if (temp==2) {
 			System.out.println("You Chose ACT");
 			act(s, aone);
-		}
+		}*/
+		iffy(s,temp,aone);
+		System.out.print("Please type number corresponding to desired scores 1.) SAT 2.)ACT for second applicant");
+		temp = s.nextInt();
+		iffy(s,temp,atwo);
 		System.out.println("Applicant one had an overall score of" + aone.getScore()+"\nApplicant 2 has a score of "+atwo.getScore());
 		printhigh(aone, atwo);
 	s.close();	
@@ -25,6 +29,16 @@ public class mainrun {
 	
 	static void intro() {
 		System.out.println("This program compares two applicants to\ndetermine which one seems like the stronger\napplicant.  For each candidate I will need\neither SAT or ACT scores plus a weighted GPA.");
+	}
+	
+	static void iffy(Scanner s,int opt, applicant num) {
+		if (opt==1) {
+			System.out.println("You Chose SAT");
+			sat(s, num);
+		} else if (opt==2) {
+			System.out.println("You Chose ACT");
+			act(s, num);
+		}
 	}
 	
 	public static void act(Scanner s, applicant a) {
